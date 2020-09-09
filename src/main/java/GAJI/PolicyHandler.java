@@ -58,5 +58,17 @@ public class PolicyHandler{
             productRepository.save(product);
         }
     }
+    @StreamListener(KafkaProcessor.INPUT)
+    public void wheneverCheckConfirmed_StatusChange(@Payload CheckConfirmed checkConfirmed){
+
+        if(checkConfirmed.isMe()){
+            //System.out.println("Product " + checkConfirmed
+            Optional<Product> productOptional = productRepository.findById(checkConfirmed.getProductId());
+
+            Product product = productOptional.get();
+            product.setStatus("Product is checked");
+            productRepository.save(product);
+        }
+    }
 
 }

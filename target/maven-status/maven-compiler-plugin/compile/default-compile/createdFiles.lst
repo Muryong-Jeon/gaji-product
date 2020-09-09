@@ -1,8 +1,11 @@
 GAJI/PolicyHandler.class
+GAJI/external/ProductCheck.class
 GAJI/config/kafka/KafkaProcessor.class
+GAJI/external/ProductCheckService.class
 GAJI/AbstractEvent$1.class
 GAJI/Product.class
 GAJI/AbstractEvent.class
+GAJI/CheckConfirmed.class
 GAJI/Left.class
 GAJI/ProductApplication.class
 GAJI/StatusChanged.class

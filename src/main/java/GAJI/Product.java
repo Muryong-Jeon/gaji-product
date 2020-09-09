@@ -1,6 +1,8 @@
 package GAJI;
 
 import javax.persistence.*;
+import javax.transaction.Transactional;
+
 import org.springframework.beans.BeanUtils;
 import java.util.List;
 
@@ -21,6 +23,13 @@ public class Product {
         BeanUtils.copyProperties(this, registered);
         registered.publishAfterCommit();
 
+        GAJI.external.ProductCheck productCheck = new GAJI.external.ProductCheck();
+        // mappings goes here
+        productCheck.setProductId(this.getId());
+        productCheck.setCheckFlag("X");
+
+        ProductApplication.applicationContext.getBean(GAJI.external.ProductCheckService.class)
+                .requestCheck(productCheck);
 
     }
 
