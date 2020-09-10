@@ -41,6 +41,15 @@ server:
 api:
   url:
     productcheck: http://localhost:8086
+
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+    default:
+      execution.isolation.thread.timeoutInMilliseconds: 610
 ---
 
 spring:
@@ -69,3 +78,12 @@ spring:
 api:
   url:
     productcheck: http://productcheck:8080
+
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+    default:
+      execution.isolation.thread.timeoutInMilliseconds: 610
